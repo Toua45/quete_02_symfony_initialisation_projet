@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a13f67b-87c3-457f-a9d0-814c11b99fcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/wild/include/_navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,6 +135,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/wild/include" />
+      <recent name="$PROJECT_DIR$/templates/wild" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -161,7 +165,7 @@
       <updated>1573933637781</updated>
       <workItem from="1573933639250" duration="8429000" />
       <workItem from="1574064120598" duration="439000" />
-      <workItem from="1574078056536" duration="727000" />
+      <workItem from="1574078056536" duration="2225000" />
     </task>
     <servers />
   </component>

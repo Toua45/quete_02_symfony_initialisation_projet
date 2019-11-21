@@ -1,5 +1,5 @@
 <?php
-// src/Controller/WildController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +14,25 @@ Class WildController extends AbstractController
     public function index(): Response
     {
         return $this->render('wild/index.html.twig', [
-                'website' => 'Wild Séries',
+            'website' => 'Wild Séries',
+        ]);
+    }
+
+    /**
+     * @Route("/wild/show/{slug}",
+     *     requirements={"slug"="[a-z0-9\-]+"},
+     *     methods={"GET"},
+     *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
+     *     name="wild_show"
+     * )
+     */
+    public function show($slug): Response
+    {
+        $string = str_replace("-"," ", $slug);
+        $slug = ucwords($string);
+
+        return $this->render('wild/show.html.twig', [
+            'slug' => $slug
         ]);
     }
 }
