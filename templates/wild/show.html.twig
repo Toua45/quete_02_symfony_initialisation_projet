@@ -15,8 +15,8 @@
                 <section class="seasons">
                     {% for season in seasons %}
                         <div>
-                        <a class="season" href="{{path('wild_season', {'id' : season.id })}}">Saison {{ season.id }} ({{ season.year }})</a>
-                            <p>{{ season.description }}</p>
+                            <a class="season" href="{{path('wild_season', {'id' : season.id })}}"><h2>Saison {{ season.id }} ({{ season.year }})</h2></a>
+                            <p class="text-justify">{{ season.description }}</p>
                         </div>
                     {% endfor %}
                 </section>

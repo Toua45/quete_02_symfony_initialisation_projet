@@ -4,13 +4,8 @@
 {% block body %}
     <h1>Saison {{ season.id }}</h1>
     {% for episode in episodes %}
-        <div>
-            <h2>Episode {{ episode.number }} : {{ episode.title }}</h2>
-            <p>{{ episode.synopsis }}</p>
-        </div>
+        <a href="{{ path('wild_episode', {'id': episode.id}) }}"><p>Episode {{ episode.number }} : {{ episode.title }}</p></a>
     {% endfor %}
-
-
     <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}">
         Retour
     </a>
