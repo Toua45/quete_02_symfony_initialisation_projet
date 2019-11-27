@@ -6,17 +6,15 @@ use App\Entity\Category;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\Episode;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 Class WildController extends AbstractController
 {
     /**
      * @Route("wild/", name="wild_index")
-     * @return Response A response instance
+     * @return Response
      */
     public function index(): Response
     {
@@ -136,5 +134,22 @@ Class WildController extends AbstractController
             'program' => $program,
             'season' => $season,
             ]);
+    }
+
+    /**
+     *
+     * @Route("wild/episode/{id}", name="wild_episode")
+     * @return Response
+     */
+    public function showEpisode(Episode $episode):Response
+    {
+        $season = $episode->getSeason();
+        $program = $season->getProgram();
+
+        return $this->render('wild/episode.html.twig', [
+            'episode' => $episode,
+            'season' => $season,
+            'program' => $program,
+        ]);
     }
 }
