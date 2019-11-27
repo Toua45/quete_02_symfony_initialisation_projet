@@ -3,11 +3,13 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1>Toutes les séries : </h1>
+<div class="container-fluid row">
     {% for program in programs %}
-        <div>
-            <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}"><h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2></a>
-            <p>{{ program.summary }}</p>
+        <div class="col-lg-3 offset-1">
+            <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}"><h3 class="serie_title">{{ loop.index }} / {{ program.title }}</h3>
+                <h4 class="serie_category">Catégorie : {{ program.category.name }}</h4>
+                <img src="{{ program.poster }}" class="picture_series" width="400"></a>
         </div>
     {% else %}
         Aucune série trouvée.
