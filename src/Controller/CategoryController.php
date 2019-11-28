@@ -3,20 +3,21 @@
 namespace App\Controller;
 
 use App\Form\CategoryType;
-use http\Env\Response;
+
 use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends AbstractController
 {
     /**
      * @Route("/category", name="category")
      */
-    public function add(Request $request)
+    public function add(Request $request):Response
     {
         $category = new Category();
 
@@ -30,6 +31,8 @@ class CategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($data);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_index');
 
         }
             return $this->render('category/index.html.twig', [
