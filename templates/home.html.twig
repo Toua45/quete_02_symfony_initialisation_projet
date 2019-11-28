@@ -19,4 +19,10 @@
     </a>
     </div>
 
+    <p>
+        Les catégories que vous pouvez trouver sur le site sont :
+        {% for category in categories %}
+            {{ category.name }},
+        {% endfor %}
+    </p>
 {% endblock %}
