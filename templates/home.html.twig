@@ -2,13 +2,27 @@
 
 {% block body %}
     <h1>Bienvenue sur Wild Series</h1>
-    <br>
+    <div>
     {# templates/index.html.twig #}
     <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
         Testing show() method from WildController with a real programs slug.
     </a>
-    <br>
+    </div>
+    <div>
     <a href="{{ path('wild_index') }}">
         Testing index() method from WildController to view all programs.
     </a>
+    </div>
+    <div>
+    <a href="{{ path('category') }}">
+        Ajouter une catégorie
+    </a>
+    </div>
+
+    <p>
+        Les catégories que vous pouvez trouver sur le site sont :
+        {% for category in categories %}
+            {{ category.name }},
+        {% endfor %}
+    </p>
 {% endblock %}

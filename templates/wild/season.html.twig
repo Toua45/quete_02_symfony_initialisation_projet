@@ -6,7 +6,7 @@
     {% for episode in episodes %}
         <a href="{{ path('wild_episode', {'id': episode.id}) }}"><p>Episode {{ episode.number }} : {{ episode.title }}</p></a>
     {% endfor %}
-    <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}">
+    <button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}">
         Retour
-    </a>
+        </a></button>
 {% endblock %}
