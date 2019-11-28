@@ -3,23 +3,43 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries : </h1>
-<div class="container-fluid row">
-    {% for program in programs %}
-        <div class="col-lg-3 offset-1">
-            <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}"><h3 class="serie_title">{{ loop.index }} / {{ program.title }}</h3>
-                <h4 class="serie_category">Catégorie : {{ program.category.name }}</h4>
-                <img src="{{ program.poster }}" class="picture_series" width="400"></a>
+    <h1 xmlns="http://www.w3.org/1999/html">Toutes les séries : </h1>
+
+    {#{{ form_start(form) }}
+
+    {{ form_row(form.searchField) }}
+
+    <button type="submit" name="btn-search" class="btn btn-dark">Rechercher</button>
+
+    {{ form_end(form) }}#}
+
+
+    {#<div class="formulaire">
+        {{ form_start(form) }}
+
+        {{ form_row(form.name) }}
+
+        <button class="btn">{{ button_label|default('Save') }}</button>
+
+        {{ form_end(form) }}
+    </div>#}
+
+    <div class="container-fluid row">
+        {% for program in programs %}
+            <div class="col-sm-3 offset-1">
+                <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})}) }}"><h5
+                            class="serie_title">{{ loop.index }} / {{ program.title }}</h5>
+                    <h6 class="serie_category">Catégorie : {{ program.category.name }}</h6>
+                    <img src="{{ program.poster }}" class="picture_series" width="300"></a>
+            </div>
+        {% else %}
+            Aucune série trouvée.
+        {% endfor %}
+        <div class="col-sm-6 offset-5">
+        <button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('app_index') }}">
+                Retour à l'accueil
+            </a></button>
         </div>
-    {% else %}
-        Aucune série trouvée.
-    {% endfor %}
-
-
-    <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
-    <br>
-
+    </div>
 {% endblock %}
 

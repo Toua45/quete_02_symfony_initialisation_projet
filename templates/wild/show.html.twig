@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="media">
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster" width="550">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster" width="500">
 
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
@@ -24,9 +24,11 @@
         </div>
     </div>
 
-    <a href="{{ path('wild_index') }}">
+<div class="col-sm-6 offset-6">
+<button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('wild_index') }}">
         Retour
-    </a>
+    </a></button>
+</div>
 
 {% endblock %}
 

@@ -6,9 +6,14 @@ use App\Entity\Category;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\Episode;
+use App\Form\ProgramSearchType;
+use App\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 Class WildController extends AbstractController
 {
@@ -16,21 +21,51 @@ Class WildController extends AbstractController
      * @Route("wild/", name="wild_index")
      * @return Response
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findAll();
 
-        if (!$programs) {
+        /**if (!$programs) {
             throw $this->createNotFoundException(
                 'No program found in program\'s table.'
             );
         }
 
-        return $this->render('wild/index.html.twig', [
+        $form = $this->createForm(
+
+            ProgramSearchType::class,
+            null,
+            ['method' => Request::METHOD_GET]
+
+        );
+
+        /**$category = new Category();
+
+        $form = $this->createForm(
+            CategoryType::class,
+            $category
+        );
+
+        $form = $this->createForm(ProgramSearchType::class);
+
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted()) {
+
+            $data = $form->getData();
+
+            // $data contient les données du $_POST
+
+            // TODO : Faire une recherche dans la BDD avec les infos de $data...
+        }*/
+
+            return $this->render('wild/index.html.twig', [
             'website' => 'Wild Séries',
             'programs' => $programs,
+            /*'form' => $form->createView(),*/
         ]);
     }
 
