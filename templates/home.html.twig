@@ -19,10 +19,25 @@
     </a>
     </div>
 
-    <p>
+    {#<p>
         Les catégories que vous pouvez trouver sur le site sont :
         {% for category in categories %}
             {{ category.name }},
         {% endfor %}
-    </p>
+    </p>#}
+    <div>
+        <a href="{{ path('program_index') }}">
+            Page administrateur de la section Programme
+        </a>
+    </div>
+    <div>
+        <a href="{{ path('season_index') }}">
+            Page administrateur de la section Saison
+        </a>
+    </div>
+    <div>
+        <a href="{{ path('episode_index') }}">
+            Page administrateur de la section Episode
+        </a>
+    </div>
 {% endblock %}

@@ -4,9 +4,14 @@
 
 {% block body %}
     <h1>Ajouter une nouvelle catégorie</h1>
+    <div class="container-fluid row">
     {{ form_start(form) }}
     {{ form_row(form.name) }}
     <button class="btn btn-dark">{{ button_label|default('Save') }}</button>
     {{ form_end(form) }}
 
+
+    </div> <button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a></button>
 {% endblock %}
