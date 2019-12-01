@@ -15,12 +15,20 @@
                 <section class="seasons">
                     {% for season in seasons %}
                         <div>
-                            <a class="season" href="{{path('wild_season', {'id' : season.id })}}"><h2>Saison {{ season.id }} ({{ season.year }})</h2></a>
+                            <a class="season" href="{{path('wild_season', {'id' : season.id })}}"><h2>Saison {{ season.number }} ({{ season.year }})</h2></a>
                             <p class="text-justify">{{ season.description }}</p>
                         </div>
                     {% endfor %}
                 </section>
             </div>
+            <h2>Acteurs :</h2>
+            <ul>
+                {% for actor in program.actors %}
+                    <li> <a href="{{ path('show_actor', { 'id': actor.id }) }}">{{ actor.name }} </a></li>
+                {% else %}
+                    <li>Aucun acteur pour cette série</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 

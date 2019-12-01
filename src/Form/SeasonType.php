@@ -14,6 +14,7 @@ class SeasonType extends AbstractType
         $builder
             ->add('year')
             ->add('description')
+            ->add('number')
             ->add('program', null, ['choice_label'=>'title'])
         ;
     }

@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Saison {{ season.id }}</h1>
+    <h1>Saison {{ season.number }}</h1>
     {% for episode in episodes %}
         <a href="{{ path('wild_episode', {'id': episode.id}) }}"><p>Episode {{ episode.number }} : {{ episode.title }}</p></a>
     {% endfor %}

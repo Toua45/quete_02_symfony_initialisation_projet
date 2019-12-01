@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actor.name }}{% endblock %}
+
+{% block body %}
+    <h2>L'acteur {{ actor.name }} joue dans les séries suivantes :</h2>
+    <div class="container-fluid row">
+        {% for program in programs %}
+    <div class="col-sm-3 offset-1"><a href="{{ path('wild_show', { 'slug': program.title|replace({' ':'-'})|lower }) }}">
+            <h5>{{ program.title }}</h5>
+            <img src="{{ program.poster }}" class="picture_series" width="300"></a></div>
+        {% endfor %}
+    </div>
+{% endblock %}
