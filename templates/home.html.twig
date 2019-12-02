@@ -4,19 +4,19 @@
     <h1>Bienvenue sur Wild Series</h1>
     <div>
     {# templates/index.html.twig #}
-    <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
+       <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
         Testing show() method from WildController with a real programs slug.
-    </a>
+            </a>
     </div>
     <div>
     <a href="{{ path('wild_index') }}">
         Testing index() method from WildController to view all programs.
-    </a>
+        </a>
     </div>
     <div>
-    <a href="{{ path('category') }}">
+   <a href="{{ path('category') }}">
         Ajouter une catégorie
-    </a>
+        </a>
     </div>
 
     {#<p>
@@ -28,16 +28,16 @@
     <div>
         <a href="{{ path('program_index') }}">
             Page administrateur de la section Programme
-        </a>
+            </a>
     </div>
     <div>
         <a href="{{ path('season_index') }}">
             Page administrateur de la section Saison
-        </a>
+            </a>
     </div>
     <div>
         <a href="{{ path('episode_index') }}">
             Page administrateur de la section Episode
-        </a>
+            </a>
     </div>
 {% endblock %}
