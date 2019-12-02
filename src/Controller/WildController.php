@@ -196,7 +196,8 @@ Class WildController extends AbstractController
      */
     public function showByActor(Actor $actor): Response
     {
-        $program = $actor->getPrograms()->toArray();
+        $program = $actor->getPrograms();
+
         return $this->render(("wild/actor.html.twig"), [
             "actor" => $actor,
             "programs" => $program,

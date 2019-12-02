@@ -3,14 +3,16 @@
 {% block title %}Edit Program{% endblock %}
 
 {% block body %}
-    <h1>Edit Program</h1>
-<div class="form-group">
+
+<div class="container">
+
+    <h1 class="text-center">Edit Program</h1>
 
     {{ include('program/_form.html.twig', {'button_label': 'Update'}) }}
-
-</div>
 
     {{ include('program/_delete_form.html.twig') }}
 
     <a href="{{ path('program_index') }}">back to list</a>
+
+</div>
 {% endblock %}
