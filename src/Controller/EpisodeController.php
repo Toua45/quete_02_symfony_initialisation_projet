@@ -82,7 +82,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="episode_delete", methods={"DELETE"})
+     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Episode $episode): Response
     {
