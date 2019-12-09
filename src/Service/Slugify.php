@@ -15,5 +15,9 @@ class Slugify
         $input = preg_replace('/--+/', '-', $input);
         $input = strtolower($input);
         return preg_replace('/[^A-Za-z0-9\-]/', '', $input); // Supprime les caractères spéciaux
+
+        /*$text = trim(iconv('utf-8', 'ascii//TRANSLIT', $input));
+        $slug = preg_replace('/[^a-z0-9 ]+/i', '', $text);
+        return preg_replace('/\s+/', '-', strtolower($slug));*/
     }
 }
