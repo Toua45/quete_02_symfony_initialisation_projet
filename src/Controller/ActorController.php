@@ -82,7 +82,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="actor_delete", methods={"DELETE"})
+     * @Route("/{id}", name="actor_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Actor $actor): Response
     {
