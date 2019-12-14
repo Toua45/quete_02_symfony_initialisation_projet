@@ -2,6 +2,8 @@
 
 {% block body %}
     <h1>Bienvenue sur Wild Series</h1>
+
+    {% if is_granted('ROLE_ADMIN') %}
     <div>
     {# templates/index.html.twig #}
        <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
@@ -45,4 +47,5 @@
             Page administrateur de la section Acteurs
         </a>
     </div>
+    {%endif%}
 {% endblock %}
