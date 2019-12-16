@@ -32,7 +32,7 @@ class Program
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Le synopsis ne dois pas être vide")
+     * @Assert\NotBlank(message="Le synopsis ne doit pas être vide")
      * @Assert\Regex(
      *      pattern="/plus belle la vie/",
      *      match=false,
