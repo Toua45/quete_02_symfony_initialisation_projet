@@ -12,7 +12,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item nav-link" href="/wild/category/horreur">Horreur</a>
-                    <a class="dropdown-item nav-link" href="#">Action</a>
+                    <a class="dropdown-item nav-link" href="/wild/category/action">Action</a>
                     <a class="dropdown-item nav-link" href="#">Something else here</a>
                 </div>
             </li>
@@ -35,12 +35,12 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
-
             <li class="nav-item avatar">
                 {% if app.user %}
+                    <div class="row">
                     <a class="nav-link p-0" href="{{ path('app_logout') }}"><button type="button" class="btn btn-danger mr-2">Se deconnecter</button>
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar.jpg" class="rounded-circle z-depth-0"
-                             alt="avatar image" height="35"></a>
+                        </a><a href="{{ path('app_profile') }}"><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar.jpg" class="rounded-circle z-depth-0"
+                                                                     alt="avatar image" height="35"></a></div>
                 {% else %}
                     <a class="nav-link p-0" href="{{ path('app_login') }}"><button type="button" class="btn btn-danger mr-2">Connexion</button>
                         <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar.jpg" class="rounded-circle z-depth-0"
