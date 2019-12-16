@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\Episode;
 use App\Entity\Actor;
+use App\Form\CommentType;
 use App\Form\ProgramSearchType;
 use App\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,41 +29,6 @@ Class WildController extends AbstractController
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findAll();
-
-        /**if (!$programs) {
-            throw $this->createNotFoundException(
-                'No program found in program\'s table.'
-            );
-        }
-
-        $form = $this->createForm(
-
-            ProgramSearchType::class,
-            null,
-            ['method' => Request::METHOD_GET]
-
-        );
-
-        /**$category = new Category();
-
-        $form = $this->createForm(
-            CategoryType::class,
-            $category
-        );
-
-        $form = $this->createForm(ProgramSearchType::class);
-
-        $form->handleRequest($request);
-
-
-        if ($form->isSubmitted()) {
-
-            $data = $form->getData();
-
-            // $data contient les données du $_POST
-
-            // TODO : Faire une recherche dans la BDD avec les infos de $data...
-        }*/
 
             return $this->render('wild/index.html.twig', [
             'website' => 'Wild Séries',
@@ -177,15 +144,32 @@ Class WildController extends AbstractController
      * @Route("wild/episode/{id}", name="wild_episode")
      * @return Response
      */
-    public function showEpisode(Episode $episode):Response
+    public function showEpisode(Episode $episode, Request $request): Response
     {
         $season = $episode->getSeason();
         $program = $season->getProgram();
+
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $comment->setAuthor($this->getUser());
+            $comment->setEpisode($episode);
+            $comment->setRate($data->getRate());
+            $comment->setComment($data->getComment());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            return $this->redirectToRoute('wild_episode', ['id' => $episode->getID()]);
+        }
 
         return $this->render('wild/episode.html.twig', [
             'episode' => $episode,
             'season' => $season,
             'program' => $program,
+            'comment' => $comment,
+            'form' => $form->createView(),
         ]);
     }
 

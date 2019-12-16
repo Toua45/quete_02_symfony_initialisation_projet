@@ -6,9 +6,13 @@
 
     <div class="media">
         <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster" width="500">
-
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+            {%endif%}
+
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
             <div>
@@ -17,6 +21,8 @@
                         <div>
                             <a class="season" href="{{path('wild_season', {'id' : season.id })}}"><h2>Saison {{ season.number }} ({{ season.year }})</h2></a>
                             <p class="text-justify">{{ season.description }}</p>
+                    {% else %}
+                        <li>Aucune saison pour cette série</li>
                         </div>
                     {% endfor %}
                 </section>
