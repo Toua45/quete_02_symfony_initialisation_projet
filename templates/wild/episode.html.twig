@@ -7,12 +7,14 @@
     <p class="text-justify">{{ episode.synopsis }}</p>
 
     <div class="col-sm-6 offset-5">
-    <button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('wild_season', {'id':season.id})}}">
-        Retour à la saison
-    </a></button>
-    <button type="button" class="btn btn-dark mr-2"><a class="btn-return" href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}">
-        Retour à la série
-        </a></button>
+        <button type="button" class="btn btn-dark mr-2"><a class="btn-return"
+                                                           href="{{ path('wild_season', {'id':season.id}) }}">
+                Retour à la saison
+            </a></button>
+        <button type="button" class="btn btn-dark mr-2"><a class="btn-return"
+                                                           href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})}) }}">
+                Retour à la série
+            </a></button>
     </div>
 
     <hr>
@@ -33,8 +35,10 @@
                 <td>{{ comment.rate }}</td>
                 <td>{{ comment.comment }}</td>
                 {% if is_granted('ROLE_SUBSCRIBER') %}
+                {% if  (app.user.email == comment.author.email) or (is_granted('ROLE_ADMIN')) %}
                     <td>{{ include('wild/_delete_comment.html.twig') }}</td>
-                {%endif%}
+                {% endif %}
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>
