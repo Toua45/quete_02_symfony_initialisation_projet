@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Bienvenue sur Wild Series</h1>
 
+    {% if is_granted('ROLE_USER') %}
     <div>
     <h2>Nos dernières séries</h2>
     <div class="container-fluid row">
@@ -17,6 +18,8 @@
         Aucune série trouvée.
     {% endfor %}
     </div>
+    {% endif %}
+
     <hr>
 
     <div>
