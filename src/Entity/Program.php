@@ -23,7 +23,7 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Le titre ne dois pas être vide")
+     * @Assert\NotBlank(message="Le titre ne doit pas être vide")
      * @Assert\Length(
      *      max = 255,
      *      maxMessage = "Le titre saisi {{ value }} est trop long, il ne doit pas dépasser {{ limit }} caractères")
