@@ -25,3 +25,5 @@ Lien video Quete Symfony 19 : https://drive.google.com/file/d/1IdyOs85A9yCGoWzeH
 Lien video Quete Symfony 20 : https://drive.google.com/file/d/1s7yjQDNe1R-LvA1OHoHZbDqXzS4HbZ2_/view?usp=sharing
 
 Lien video Quête Symfony 21 : https://drive.google.com/file/d/1zMqNlUtYyk-oB8dpo24giS7f4M-4VYxu/view?usp=sharing
+
+Lien video Quete Symfony 22 : https://drive.google.com/file/d/1VgT8qFt_U2AZI77u2ODhUKg_CfRMpz_y/view?usp=sharing
