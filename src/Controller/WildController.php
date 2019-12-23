@@ -41,7 +41,7 @@ Class WildController extends AbstractController
      * Getting a program with a formatted slug for title
      *
      * @param string $slug The slugger
-     * @Route("wild/show/{slug<^[a-z0-9-]+$>}", defaults={"slug" = null}, name="wild_show")
+     * @Route("wild/show/{slug}", defaults={"slug" = null}, name="wild_show")
      * @return Response
      */
     public function show(?string $slug):Response
@@ -60,14 +60,14 @@ Class WildController extends AbstractController
 
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program with '.$slug.' title, found in program\'s table.'
+                'No program with ' . $slug . ' title, found in program\'s table.'
             );
         }
 
         $seasons = $program->getSeasons();
         return $this->render('wild/show.html.twig', [
             'program' => $program,
-            'slug'  => $slug,
+            'slug' => $slug,
             'seasons' => $seasons,
         ]);
     }
