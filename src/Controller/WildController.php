@@ -47,7 +47,7 @@ Class WildController extends AbstractController
      * @Route("wild/show/{slug}", defaults={"slug" = null}, name="wild_show")
      * @return Response
      */
-    public function show(?string $slug):Response
+    public function show(?String $slug, Program $program):Response
     {
         if (!$slug) {
             throw $this
@@ -57,7 +57,7 @@ Class WildController extends AbstractController
             '/-/',
             ' ', ucwords(trim(strip_tags($slug)), "-")
         );
-        $program = $this->getDoctrine()
+        /*$program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findOneBy(['title' => mb_strtolower($slug)]);
 
@@ -65,7 +65,7 @@ Class WildController extends AbstractController
             throw $this->createNotFoundException(
                 'No program with ' . $slug . ' title, found in program\'s table.'
             );
-        }
+        }*/
 
         $seasons = $program->getSeasons();
         return $this->render('wild/show.html.twig', [
